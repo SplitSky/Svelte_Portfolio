@@ -1,3 +1,4 @@
+# sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
@@ -14,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-npx sv@0.12.8 create --template minimal --types ts --add prettier tailwindcss="plugins:typography" mdsvex sveltekit-adapter="adapter:auto" vitest="usages:unit,component" eslint --install npm split-portfolio
+npx sv@0.12.8 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography,forms" --install npm split-portfolio
 ```
 
 ## Developing
@@ -39,4 +40,3 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
