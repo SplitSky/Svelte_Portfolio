@@ -1,4 +1,5 @@
 <script>
+	import './global.css';
 	/* No JS needed for this demo */
 </script>
 
