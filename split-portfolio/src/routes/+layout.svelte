@@ -1,9 +1,38 @@
 <script lang="ts">
-	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import NavBar from '$lib/components/NavBar.svelte';
+	import '../app.css'; // Import global styles here
 
+	const name = 'Tomasz Neska';
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
-{@render children()}
+<div class="app-container">
+	<NavBar />
+
+	<main>
+		{@render children()}
+	</main>
+
+	<footer>
+		<p>&copy; {new Date().getFullYear()} {name} • Manchester, UK</p>
+	</footer>
+</div>
+
+<style>
+	.app-container {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1; /* Pushes footer to bottom */
+	}
+
+	footer {
+		padding: 4rem 2rem;
+		text-align: center;
+		color: #555;
+		border-top: 1px solid var(--border-color);
+	}
+</style>
