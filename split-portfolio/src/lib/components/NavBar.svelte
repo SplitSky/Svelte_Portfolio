@@ -4,10 +4,9 @@
 			<a href="/" class="logo">Split CV<span class="accent">.</span></a>
 		</div>
 		<div class="nav-links">
-			<a href="/aboutme">About me</a>
-			<a href="#blog">Blog</a>
-			<a href="#resume">Experience</a>
-			<a href="#projects">Projects</a>
+			<a href="/blog">Blog</a>
+			<a href="/resume">Experience</a>
+			<a href="/projects">Projects</a>
 			<a href="mailto:TomaszNeska@proton.me" class="contact-btn">Get in Touch</a>
 		</div>
 	</div>
