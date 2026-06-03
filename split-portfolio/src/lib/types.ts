@@ -1,12 +1,8 @@
 // src/lib/types.ts
-export interface PostMetadata {
+export interface Post {
+	slug: string;
 	title: string;
 	date: string;
 	description: string;
-	author?: string;
-}
-
-export interface PostEntry {
-	slug: string;
-	metadata: PostMetadata;
+	content: string; // markdown text
 }
