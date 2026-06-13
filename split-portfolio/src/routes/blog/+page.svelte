@@ -1,19 +1,22 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-	let { data }: PageData = $props();
+	import type { PageProps } from './$types';
+	let { data }: PageProps = $props();
+	import {marked} from 'marked';
 </script>
 
-<h1>Blog</h1>
-<p>Welcome to my thoughts on backend engineering and Svelte.</p>
+<h1 class="text-3xl font-bold mb-6">Technical Blog</h1>
 
 <ul class="post-list">
 	{#each data.posts as post}
 		<li>
-			<!-- This link takes you to /blog/your-post-slug -->
-			<a href="/blog/{post.slug}">{post.title}</a>
+			<a href="/blog/{post.slug}" class="post-link">
+				<span class="post-title">{post.title}</span>
+				<span class="post-date">{new Date(post.date).toLocaleDateString()}</span>
+			</a>
 		</li>
 	{/each}
 </ul>
+
 
 <style>
 	.post-list {
@@ -21,14 +24,24 @@
 		padding: 0;
 	}
 	.post-list li {
-		margin: 1rem 0;
+		margin-bottom: 1.5rem;
 	}
-	a {
-		font-size: 1.2rem;
+	.post-link {
+		display: flex;
+		flex-direction: column;
 		text-decoration: none;
-		color: #333;
+		color: #222;
+		transition: opacity 0.2s;
 	}
-	a:hover {
-		text-decoration: underline;
+	.post-link:hover {
+		opacity: 0.7;
+	}
+	.post-title {
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+	.post-date {
+		font-size: 0.875rem;
+		color: #666;
 	}
 </style>
