@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
 	let { data }: PageProps = $props();
-	import {marked} from 'marked';
 </script>
 
-<h1 class="text-3xl font-bold mb-6">Technical Blog</h1>
+<h1 class="mb-6 text-3xl font-bold">Technical Blog</h1>
 
 <ul class="post-list">
 	{#each data.posts as post}
@@ -16,7 +15,6 @@
 		</li>
 	{/each}
 </ul>
-
 
 <style>
 	.post-list {

@@ -2,6 +2,7 @@
 title: "Hello World"
 date: "2023-10-25"
 description: "description"
+tags: [svelte, code]
 ---
 
 # Blog title
@@ -16,7 +17,6 @@ This is content written in **Markdown**.
 - lorem ipsum
 
 #### Even smaller header
-lorem ipsum
 lorem ipsum
 lorem ipsum
 lorem ipsum

@@ -1,7 +1,8 @@
 import { error } from '@sveltejs/kit';
+import { getPostBySlug } from '$lib/posts/posts.ts';
 
 export function load({ params }) {
-	const post = getPost(params.slug);
+	const post = getPostBySlug(params.slug);
 
 	if (!post) {
 		throw error(404, 'Post not found');

@@ -15,6 +15,6 @@
 	<p>
 		<small>{data.post.date}</small>
 	</p>
-	<p>{data.post.description}</p>
+	<p>{data.post.description}</p>\
 	<hr />
 </article>
