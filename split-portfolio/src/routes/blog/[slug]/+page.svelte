@@ -1,20 +1,26 @@
 <script lang="ts">
-	let { data } = $props();
+	let { content, title, date, description } = $props();
+
+		//title: "Hello World"
+		//date: "2023-10-25"
+		//description: "description"
+		//tags: [svelte, code]
+
 </script>
 
 <svelte:head>
-	<title>{data.post.title}</title>
+	<title>{title}</title>
 	<meta
 		name="description"
-		content={data.post.description}
+		content={description}
 	/>
 </svelte:head>
 
 <article>
-	<h1>{data.post.title}</h1>
+	<h1>{title}</h1>
 	<p>
-		<small>{data.post.date}</small>
+		<small>{date}</small>
 	</p>
-	<p>{data.post.description}</p>\
-	<hr />
+	<p>{description}</p>\
+	<svlete:component this={content} />
 </article>

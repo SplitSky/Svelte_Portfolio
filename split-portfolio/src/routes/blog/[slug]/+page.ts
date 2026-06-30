@@ -1,12 +1,15 @@
-import { error } from '@sveltejs/kit';
-import { getPostBySlug } from '$lib/posts/posts.ts';
+import type { PageLoad } from './$types';
 
-export function load({ params }) {
-	const post = getPostBySlug(params.slug);
+export const load: PageLoad = async ({ params }) => {
+	const post = await import(`../${params.slug}.md`);
 
-	if (!post) {
-		throw error(404, 'Post not found');
-	}
+	const { title, date, description } = post.metadata;
+	const content = post.default;
 
-	return { post };
-}
+	return {
+		content,
+		title,
+		date,
+		description
+	};
+};
