@@ -30,7 +30,7 @@
 	}
 
 	footer {
-		padding: 4rem 2rem;
+		padding: 0.5rem 2rem;
 		text-align: center;
 		color: #555;
 		border-top: 1px solid var(--border-color);

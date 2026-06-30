@@ -14,7 +14,7 @@
 		title,
 		description,
 		tags = [],
-		status = '',
+		status = 'wip',
 		href = '',
 		blogSlug = '',
 		github = ''
@@ -82,7 +82,7 @@
 	}
 
 	.card:hover {
-		border-color: rgba(255, 255, 255, 0.22);
+		border-color: rgba(255, 255, 255, 0.219);
 		transform: translateY(-2px);
 	}
 
@@ -119,7 +119,7 @@
 	}
 
 	.title {
-		font-family: 'DM Serif Display', serif;
+		font-family: 'Inter Variable', sans-serif;
 		font-size: 1.2rem;
 		font-weight: 400;
 		color: #ffffff;
@@ -128,7 +128,7 @@
 	}
 
 	.status {
-		font-family: 'Inter', sans-serif;
+		font-family: 'Inter Variable', sans-serif;
 		font-size: 0.65rem;
 		letter-spacing: 0.07em;
 		text-transform: uppercase;
