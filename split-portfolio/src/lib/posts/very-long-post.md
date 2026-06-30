@@ -1,5 +1,5 @@
 ---
-title: "Hello World this title keeps going"
+title: "Veryyyyyyyyyyyyyyy long titleeeeeeeeeeeeeeee"
 date: "2023-10-25"
 description: "description"
 tags: [svelte, code]
