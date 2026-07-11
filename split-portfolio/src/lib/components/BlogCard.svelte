@@ -3,141 +3,180 @@
 	let { title, slug, date, description, tags = [] } = $props();
 
 	function formatDate(d) {
-		return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+		return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 	}
 </script>
 
 <a href="/blog/{slug}" class="card">
-	<div class="card-inner">
-		<div class="meta">
-			<time datetime={date.toISOString()}>{formatDate(date)}</time>
-			{#if tags.length > 0}
-				<div class="tags">
-					{#each tags as tag}
-						<span class="tag">{tag}</span>
-					{/each}
-				</div>
+	<!-- The "glow" element that follows the card -->
+	<div class="glow"></div>
+	
+	<div class="card-content">
+		<header class="card-header">
+			<div class="meta">
+				<time datetime={date.toISOString()}>{formatDate(date)}</time>
+				{#if tags.length > 0}
+					<div class="tags">
+						{#each tags as tag}
+							<span class="tag">{tag}</span>
+						{/each}
+					</div>
+				{/if}
+			</div>
+		</header>
+
+		<div class="card-body">
+			<h2 class="title">{title}</h2>
+			{#if description}
+				<p class="description">{description}</p>
 			{/if}
 		</div>
-		<h2 class="title">{title}</h2>
-		{#if description}
-			<p class="description">{description}</p>
-		{/if}
-		<span class="read-more">Read post →</span>
+
+		<footer class="card-footer">
+			<span class="read-more">
+				Read post 
+				<span class="arrow">→</span>
+			</span>
+		</footer>
 	</div>
 </a>
 
 <style>
 	.card {
 		display: block;
-		text-decoration: none;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 8px;
-		background: linear-gradient(
-			135deg,
-			rgba(255, 255, 255, 0.04) 0%,
-			rgba(255, 255, 255, 0.01) 100%
-		);
-		transition:
-			border-color 0.2s ease,
-			background 0.2s ease,
-			transform 0.2s ease;
 		position: relative;
+		text-duration: none;
+		text-decoration: none;
+		/* Increased border radius for a less "square" look */
+		border-radius: 24px; 
+		/* Glassmorphism effect */
+		background: rgba(255, 255, 255, 0.03);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		
 		overflow: hidden;
+		transition: 
+			transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+			border-color 0.4s ease,
+			box-shadow 0.4s ease;
 	}
 
-	/* The signature "light beam" edge accent */
-	.card::before {
-		content: '';
+	/* The "Glow" background effect */
+	.glow {
 		position: absolute;
 		top: 0;
 		left: 0;
-		right: 0;
-		height: 1px;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+		width: 100%;
+		height: 100%;
+		background: radial-gradient(
+			800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+			rgba(255, 255, 255, 0.06),
+			transparent 40%
+		);
 		opacity: 0;
-		transition: opacity 0.2s ease;
+		transition: opacity 0.5s ease;
+		pointer-events: none;
 	}
 
 	.card:hover {
-		border-color: rgba(255, 255, 255, 0.25);
-		background: linear-gradient(
-			135deg,
-			rgba(255, 255, 255, 0.07) 0%,
-			rgba(255, 255, 255, 0.02) 100%
-		);
-		transform: translateY(-2px);
+		transform: translateY(-8px) scale(1.01);
+		border-color: rgba(255, 255, 255, 0.2);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 	}
 
-	.card:hover::before {
+	.card:hover .glow {
 		opacity: 1;
 	}
 
-	.card-inner {
-		padding: 1.75rem 2rem;
+	.card-content {
+		padding: 2rem;
 		display: flex;
 		flex-direction: column;
-		gap: 0.75rem;
+		/* This ensures the footer is always pushed to the bottom, 
+		   helping with height consistency */
+		min-height: 100%; 
+	}
+
+	.card-header {
+		margin-bottom: 1.5rem;
 	}
 
 	.meta {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.75rem;
 		flex-wrap: wrap;
 	}
 
 	time {
-		font-size: 0.8rem;
-		color: rgba(255, 255, 255, 0.4);
-		letter-spacing: 0.05em;
-		font-family: 'Inter', sans-serif;
+		font-size: 0.75rem;
 		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: rgba(255, 255, 255, 0.4);
+		font-weight: 500;
 	}
 
 	.tags {
 		display: flex;
-		gap: 0.4rem;
-		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 
 	.tag {
-		font-size: 0.7rem;
-		padding: 0.2rem 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.15);
-		border-radius: 3px;
-		color: rgba(255, 255, 255, 0.45);
-		font-family: 'Inter', sans-serif;
-		letter-spacing: 0.04em;
+		font-size: 0.65rem;
+		padding: 0.25rem 0.75rem;
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 100px; /* Pill shape */
+		color: rgba(255, 255, 255, 0.6);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.card-body {
+		flex-grow: 1; /* This pushes the footer down */
 	}
 
 	.title {
-		font-family: 'DM Serif Display', serif;
 		font-size: 1.5rem;
-		font-weight: 400;
+		line-height: 1.3;
 		color: #ffffff;
-		line-height: 1.25;
-		margin: 0;
+		margin: 0 0 0.75rem 0;
+		transition: color 0.3s ease;
+	}
+
+	.card:hover .title {
+		color: #fff; /* Slight brightness shift */
 	}
 
 	.description {
-		font-family: 'Inter', sans-serif;
-		font-size: 0.95rem;
-		color: rgba(255, 255, 255, 0.55);
+		font-size: 1rem;
 		line-height: 1.6;
+		color: rgba(255, 255, 255, 0.5);
 		margin: 0;
 	}
 
+	.card-footer {
+		margin-top: 2rem;
+	}
+
 	.read-more {
-		font-family: 'Inter', sans-serif;
-		font-size: 0.8rem;
-		color: rgba(255, 255, 255, 0.35);
-		letter-spacing: 0.04em;
-		margin-top: 0.25rem;
-		transition: color 0.2s ease;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.3);
+		transition: color 0.3s ease, gap 0.3s ease;
+	}
+
+	.arrow {
+		transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
 
 	.card:hover .read-more {
-		color: rgba(255, 255, 255, 0.75);
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.card:hover .arrow {
+		transform: translateX(5px);
 	}
 </style>

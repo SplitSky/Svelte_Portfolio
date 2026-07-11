@@ -1,18 +1,15 @@
 <script lang="ts">
 	import BlogCard from '$lib/components/BlogCard.svelte';
-	import type { PageProps } from './$lib/types'; // Ensure path is correct
+	import type { PageProps } from '/$lib/types';
     
 	let { data }: PageProps = $props();
-    
-    // SAFETY: Fallback to empty array if posts are missing
     const posts = $derived(data.posts || []);
 </script>
 
-<h1 class="mb-6 text-3xl font-bold">Technical Blog</h1>
+<h1 class="mb-10 text-3xl font-bold pb-8 pt-6">Technical Blog</h1>
 
 <ul class="post-list">
 	{#each posts as post}
-		<!-- FIX: Wrapped in <li> for valid HTML -->
 		<li>
 			<BlogCard
 				title={post.title}
