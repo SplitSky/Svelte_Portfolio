@@ -1,27 +1,13 @@
 <script lang="ts">
-	let { content, title, date, description } = $props();
+	import type { PageData } from './$types';
 
-		//title: "Hello World"
-		//date: "2023-10-25"
-		//description: "description"
-		//tags: [svelte, code]
-	console.log("title")
-
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
-	<title>{title}</title>
-	<meta
-		name="description"
-		content={description}
-	/>
+	<title>{data.post.title}</title>
 </svelte:head>
 
-<article>
-	<h1>{title}</h1>
-	<p>
-		<small>{date}</small>
-	</p>
-	<p>{description}</p>\
-	<svlete:component this={content} />
-</article>
+<h1>{data.post.title}</h1>
+
+{@html data.post.html}

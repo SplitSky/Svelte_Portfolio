@@ -1,20 +1,30 @@
-import type { PageLoad } from './$types';
+import { error } from '@sveltejs/kit';
+import matter from 'gray-matter';
+import { marked } from 'marked';
 
-export const load: PageLoad = async ({ params }) => {
-	const all_posts = import.meta.glob('$lib/posts/*.md', { 
-        query: '?raw', 
-        import: 'default', 
-        eager: true 
-    });
+const posts = import.meta.glob('$lib/posts/*.md', {
+	query: '?raw',
+	import: 'default'
+});
 
-	const post = all_posts[]
-	const { title, date, description } = post.metadata;
-	const content = post.default;
+export async function load({ params }) {
+	const path = `/src/lib/posts/${params.slug}.md`;
+
+	const loader = posts[path];
+
+	if (!loader) {
+		throw error(404, 'Post not found');
+	}
+
+	const markdown = await loader();
+
+	const { data, content } = matter(markdown);
 
 	return {
-		content,
-		title,
-		date,
-		description
+		post: {
+			slug: params.slug,
+			...data,
+			html: marked.parse(content)
+		}
 	};
-};
+}
