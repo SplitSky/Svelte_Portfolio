@@ -191,11 +191,6 @@
 		transition: all 0.3s ease;
 	}
 
-	.is-expanded .inner-node {
-		background: #00ff41;
-		box					box-shadow: 0 0 8px #00ff41;
-	}
-
 	/* The Content Card */
 	.content-card {
 		width: 45%; /* Keep it from hitting the line too hard */
@@ -238,7 +233,6 @@
 		text-align: left; /* Reset text alignment for bullets regardless of side */
 	}
 
-	/* Ensure text in left-side expansion isn't right-aligned */
 	.side-left .details {
 		text-align: left;
 	}

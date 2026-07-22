@@ -12,7 +12,7 @@ interface Post {
 }
 
 export const load: PageLoad = async () => {
-    const modules = import.meta.glob('../../lib/posts/*.md', { 
+    const modules = import.meta.glob('$lib/posts/*.md', { 
         query: '?raw', 
         import: 'default', 
         eager: true 
