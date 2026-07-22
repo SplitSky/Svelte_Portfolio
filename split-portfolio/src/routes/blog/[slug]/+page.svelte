@@ -5,6 +5,7 @@
 		//date: "2023-10-25"
 		//description: "description"
 		//tags: [svelte, code]
+	console.log("title")
 
 </script>
 
