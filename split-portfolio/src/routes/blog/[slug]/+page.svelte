@@ -22,7 +22,7 @@
 		</time>
 
 		{#if data.post.tags?.length}
-			<ul class="tags">
+			<ul class="tags text-black">
 				{#each data.post.tags as tag}
 					<li>{tag}</li>
 				{/each}
