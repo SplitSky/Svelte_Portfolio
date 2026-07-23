@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+/* src/app.css */
+:root {
+	--bg-color: #050505;
+	--text-main: #ffffff;
+	--text-muted: #aaa;
+	--accent: #ffffff;
+	--accent-soft: rgba(168, 85, 247, 0.1);
+	--border-color: #222;
+	--container-width: 1000px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+	color: var(--text-main);
+	font-family:
+		'Inter',
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	line-height: 1.6;
+}
+
+/* This ensures the main content of EVERY page is centered and aligned */
+main {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+}

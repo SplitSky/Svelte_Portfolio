@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-npx sv@0.12.8 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography,forms" --install npm split-portfolio
+npx sv@0.15.3 create --template minimal --types ts --add tailwindcss="plugins:typography" mdsvex sveltekit-adapter="adapter:auto" eslint prettier --install npm split-portfolio
 ```
 
 ## Developing
