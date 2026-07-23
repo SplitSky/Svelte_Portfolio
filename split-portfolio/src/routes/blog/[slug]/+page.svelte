@@ -56,4 +56,60 @@
 		color: var(--muted, #666);
 		font-size: 0.9rem;
 	}
+	.content :global(h1) {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin: 2rem 0 1rem;
+	}
+
+	.content :global(h2) {
+		font-size: 2rem;
+		font-weight: 600;
+		margin: 1.75rem 0 0.75rem;
+	}
+
+	.content :global(h3) {
+		font-size: 1.5rem;
+		font-weight: 600;
+		margin: 1.5rem 0 0.5rem;
+	}
+
+	.content :global(p) {
+		margin: 1rem 0;
+		line-height: 1.7;
+	}
+
+	.content :global(ul),
+	.content :global(ol) {
+		margin: 1rem 0;
+		padding-left: 2rem;
+	}
+
+	.content :global(li) {
+		margin: 0.4rem 0;
+	}
+
+	.content :global(a) {
+		color: dodgerblue;
+		text-decoration: underline;
+	}
+
+	.content :global(pre) {
+		padding: 1rem;
+		border-radius: 8px;
+		background: #222;
+		color: #fff;
+		overflow-x: auto;
+	}
+
+	.content :global(code) {
+		font-family: monospace;
+	}
+
+	.content :global(blockquote) {
+		border-left: 4px solid #ccc;
+		padding-left: 1rem;
+		margin: 1rem 0;
+		font-style: italic;
+	}
 </style>
