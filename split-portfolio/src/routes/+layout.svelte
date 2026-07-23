@@ -1,6 +1,6 @@
 <script lang="ts">
 	import NavBar from '$lib/components/NavBar.svelte';
-	import '../app.css'; // Import global styles here
+	import '../app.css';
 
 	const name = 'Tomasz Neska';
 	let { children } = $props();

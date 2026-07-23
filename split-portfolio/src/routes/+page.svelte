@@ -1,8 +1,6 @@
 <script>
-	// ... All your $state and logic stays exactly as you had it ...
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
-	// ... (rest of your existing code)
 </script>
 
 <header class="hero">
@@ -12,11 +10,7 @@
 	<div class="hero-glow"></div>
 </header>
 
-<!-- All your sections (Experience, Projects, Skills) stay here -->
-<!-- ... (rest of your existing HTML) -->
-
 <style>
-	/* ONLY styles unique to this page */
 	.hero {
 		position: relative;
 		padding: 6rem 0;
@@ -46,7 +40,6 @@
 		z-index: -1;
 	}
 
-	/* Project Cards and Section Titles stay here... */
 	.section-title {
 		border-left: 4px solid var(--accent);
 		padding-left: 1rem;

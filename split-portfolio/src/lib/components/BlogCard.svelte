@@ -8,9 +8,7 @@
 </script>
 
 <a href="/blog/{slug}" class="card">
-	<!-- The "glow" element that follows the card -->
 	<div class="glow"></div>
-	
 	<div class="card-content">
 		<header class="card-header">
 			<div class="meta">

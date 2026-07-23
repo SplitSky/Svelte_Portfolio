@@ -12,7 +12,12 @@
 
 <article>
 	<header>
-		<h1>{data.post.title}</h1>
+		<div>
+			<h1 class="pt-4 mt-2 mb-4 text-3xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">
+				<span class="underline underline-offset-3 decoration-8 decoration-brand">{data.post.title}</span>		
+			</h1>
+			
+		</div>
 		<time datetime={data.post.date}>
 			{new Date(data.post.date).toLocaleDateString('en-US', {
 				year: 'numeric',
@@ -36,6 +41,13 @@
 </article>
 
 <style>
+	title {
+		display: flex;
+		gap: 0.5rem;
+		padding: 2%;
+		font-size: 3rem;
+	}
+
 	.tags {
 		display: flex;
 		gap: 0.5rem;

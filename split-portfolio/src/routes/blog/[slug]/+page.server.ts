@@ -11,8 +11,6 @@ const modules = import.meta.glob('$lib/posts/*.md', {
     eager: true
 }) as Record<string, string>;
 
-// Required so SvelteKit knows every slug to prerender at build time,
-// since this is a dynamic [slug] route with no server involved.
 export const entries: EntryGenerator = () => {
     return Object.keys(modules).map((path) => ({
         slug: path.split('/').pop()?.replace('.md', '') ?? ''
