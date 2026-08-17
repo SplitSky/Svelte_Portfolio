@@ -1,13 +1,15 @@
 <script>
+	import { resolve } from '$app/paths';
 	/** @type {{ title: string, slug: string, date: Date, description: string, tags: string[] }} */
 	let { title, slug, date, description, tags = [] } = $props();
-
+	
 	function formatDate(d) {
 		return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 	}
+
 </script>
 
-<a href="/blog/{slug}" class="card">
+<a href={resolve('/blog/[slug]', {slug: slug})} class="card">
 	<div class="glow"></div>
 	<div class="card-content">
 		<header class="card-header">
