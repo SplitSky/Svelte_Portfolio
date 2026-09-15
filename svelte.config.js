@@ -16,8 +16,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			// base: dev ? '' : process.env.BASE_PATH || ''
-			base: process.env.NODE_ENV === 'production' ? '/Svelte_portfolio' : ''
+			base: process.env.BASE_PATH || ''
 		}
 	},
 	preprocess: [mdsvex({ extensions: ['.svx', '.md'] })],
