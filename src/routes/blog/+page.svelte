@@ -1,8 +1,7 @@
 <script lang="ts">
 	import BlogCard from '$lib/components/BlogCard.svelte';
-	import type { PageProps } from '/$lib/types';
     
-	let { data }: PageProps = $props();
+	let { data } = $props();
     const posts = $derived(data.posts || []);
 </script>
 
@@ -31,7 +30,6 @@
 		list-style: none;
 		padding: 0;
 	}
-    /* Add margin to the list item so cards don't touch */
 	.post-list li {
 		margin-bottom: 1.5rem;
 	}
