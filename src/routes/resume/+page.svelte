@@ -1,276 +1,123 @@
 <script>
-	import { slide } from 'svelte/transition';
+  import { onMount } from 'svelte';
 
-	// Data remains the same as your CV
-	const experiences = [
-		{
-			id: 1,
-			company: 'Bury Council',
-			role: 'Data Engineer',
-			location: 'Bury, UK',
-			period: 'Dec 2024 - Present',
-			description: [
-				'Architected and deployed a modular HR data pipeline using Azure Synapse and Oracle SQL.',
-				'Developed a scalable PySpark-based architecture for real-time employee hierarchy views.',
-				'Created CI/CD pipelines in Azure DevOps to automate ETL deployment.',
-				'Led Agile sprint practices, managing delivery schedules and technical decisions.'
-			],
-			tags: ['Azure Synapse', 'PySpark', 'Python', 'Azure DevOps', 'SQL', 'Agile']
-		},
-		{
-			id: 2,
-			company: 'Cloud Perspective',
-			role: 'Data Consultant',
-			location: 'Manchester, UK',
-			period: 'Sept 2023 - Dec 2024',
-			description: [
-				'Managed large-scale data migrations (up/to 2M records) for enterprise clients.',
-				'Built a SOAP API connector to streamline Salesforce and Informatica MDM integration.',
-				'Engineered custom Apex classes within Salesforce to optimize client workflows.',
-				'Developed Python and Bash automation scripts, reducing manual efforts by 40%.'
-			],
-			tags: ['Salesforce', 'Informatica IDMC', 'Python', 'Bash', 'Apex', 'SOAP API']
-		},
-		{
-			id: 3,
-			company: 'University of Manchester',
-			role: 'Summer Intern - Data Scientist',
-			location: 'Manchester, UK',
-			period: 'Jun 2022 - Aug 2022',
-			description: [
-				'Developed an API-based analytics pipeline using Python and MongoDB.',
-				'Optimized data processing time by 30% through efficient ETL design.',
-				'Created interactive dashboards using Matplotlib for research insights.'
-			],
-			tags: ['Python', 'MongoDB', 'AWS', 'Matplotlib', 'Linux']
-		}
-	];
+  // --- DATA LAYER (Svelte 5 Runes) ---
 
-	let expandedId = $state(null);
+	let resume = $state({
+	  name: 'Tomasz Neska',
+	  title: 'Senior Data Architect & Engineer',
+	  bio: 'Experienced Data Professional with a strong background in Physics and Computer Science. Proven track record designing scalable data architectures, leading security initiatives, and building full-stack solutions using modern technologies like Python, AWS, and Svelte.',
+	  experience: [
+	    {
+	      role: 'Data Architecture & Senior Security Officer',
+	      company: 'Bury Council',
+	      duration: 'Sep 2025 - Present',
+	      desc: 'Designed council-wide data architecture using Microsoft Fabric and PowerBI. Established CI/CD pipelines, reduced cloud spend by £40k/year, and led the team as sole line manager.'
+	    },
+	    {
+	      role: 'Data Engineer',
+	      company: 'Bury Council',
+	      duration: 'Dec 2024 - Sep 2025',
+	      desc: 'Architected modular HR pipelines using Azure Synapse and PySpark. Created CI/CD in Azure DevOps to automate ETL deployment, reducing manual intervention.'
+	    },
+	    {
+	      role: 'Data Consultant',
+	      company: 'Cloud Perspective',
+	      duration: 'Sept 2023 - Dec 2024',
+	      desc: 'Executed enterprise data migration and integration projects (Salesforce/Informatica). Delivered custom APIs, Apex classes, and automation scripts reducing manual work by 40%.'
+	    },
+	    {
+	      role: 'Summer Intern - Data Scientist',
+	      company: 'University of Manchester',
+	      duration: 'Jun 2022 - Aug 2022',
+	      desc: 'Built API-based analytics pipelines using Python and MongoDB. Optimized data processing time by 30% and improved decision-making metrics with Matplotlib dashboards.'
+	    }
+	  ],
+	  skills: [
+	    'Python', 'C++', 'Rust', 'SQL', 'JavaScript', 'Apex', 'Bash', 
+	    'AWS', 'Azure Synapse', 'Docker', 'Kubernetes', 'MongoDB', 
+	    'PostgreSQL', 'Oracle', 'Vim', 'Data Analysis', 'DevOps', 'CI/CD'
+	  ],
+	  education: [
+	    {
+	      degree: 'MPhys Physics (Second Class Upper Division)',
+	      school: 'University of Manchester',
+	      year: '2018 - 2023'
+	    }
+	  ]
+	});
 
-	function toggle(id) {
-		expandedId = expandedId === id ? null : id;
-	}
+  // Computed value (reactive)
+  let jobCount = $derived(resume.experience.length);
+
+  // --- MOCK FETCH EXAMPLE ---
+  onMount(async () => {
+    // const res = await fetch('/api/resume');
+    // resume = await res.json();
+    console.log("Component mounted");
+  });
 </script>
 
-<div class="timeline-container">
-	<header>
-		<h2>EXPERIENCE_LOG</h2>
-		<p>Reverse Chronological Trace</p>
-	</header>
+<!-- MAIN CONTAINER -->
+<div class="max-w-4xl mx-auto px-6 py-12 bg-black shadow-lg rounded-xl border border-gray-100">
+  
+  <!-- HEADER SECTION -->
+  <header class="text-center md:text-left mb-8 pb-6 border-b border-gray-100">
+    <h1 class="text-3xl font-bold text-white-900 tracking-tight">{resume.name}</h1>
+    <p class="mt-2 text-xl text-white-600 font-medium">{resume.title}</p>
+    <p class="mt-4 text-white-600 leading-relaxed max-w-2xl">
+      {resume.bio}
+    </p>
+  </header>
 
-	<div class="timeline-track">
-		<!-- The central vertical line -->
-		<div class="central-line"></div>
+  <!-- MAIN CONTENT GRID (Responsive) -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <section class="md:col-span-2 space-y-8">
+      
+      <!-- EXPERIENCE -->
+      <article>
+        <h2 class="text-xl font-bold text-white-900 mb-4 flex items-center gap-2">
+          Work Experience 
+          <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">{jobCount} roles</span>
+        </h2>
 
-		{#each experiences as exp, i (exp.id)}
-			<!-- We determine side based on index: even = left, odd = right -->
-			<div
-				class="timeline-item {i % 2 === 0 ? 'side-left' : 'side-right'}"
-				class:is-expanded={expandedId === exp.id}
-				onclick={() => toggle(exp.id)}
-			>
-				<!-- The Dot on the line -->
-				<div class="node">
-					<div class="inner-node"></div>
-				</div>
+        {#each resume.experience as job (job.company)}
+          <div class="group relative pl-4 border-l-2 border-gray-200 hover:border-blue-500 transition-colors">
+            <h3 class="font-semibold text-lg text-white-800 group-hover:text-blue-700">{job.role}</h3>
+            <p class="text-sm font-medium text-red-600 mb-1">{job.company} — {job.duration}</p>
+            <p class="text-gray-600 text-sm leading-relaxed">{job.desc}</p>
+          </div>
+        {/each}
+      </article>
 
-				<div class="content-card">
-					<div class="summary">
-						<span class="role">{exp.role}</span>
-						<span class="period">{exp.period}</span>
-						<div class="company-loc">
-							{exp.company} • {exp.location}
-						</div>
-					</div>
+    </section>
 
-					{#if expandedId === exp.id}
-						<div class="details" transition:slide={{ duration: 400 }}>
-							<ul class="description-list">
-								{#each exp.description as bullet}
-									<li>{bullet}</li>
-								{/each}
-							</ul>
-							<div class="tags-container">
-								{#each exp.tags as tag}
-									<span class="tag">{tag}</span>
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</div>
-			</div>
-		{/each}
-	</div>
+    <aside class="space-y-8">
+      
+      <!-- SKILLS -->
+      <section>
+        <h2 class="text-xl font-bold text-white-900 mb-4">Skills</h2>
+        <div class="flex flex-wrap gap-2">
+          {#each resume.skills as skill}
+            <span class="px-3 py-1 bg-black-50 text-red-700 rounded-md text-sm font-medium border border-red-100">
+              {skill}
+            </span>
+          {/each}
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section>
+        <h2 class="text-xl font-bold text-white-900 mb-4">Education</h2>
+        {#each resume.education as edu (edu.school)}
+          <div class="mb-3 last:mb-0">
+            <p class="font-semibold text-red-800">{edu.degree}</p>
+            <p class="text-sm text-white-600">{edu.school} — {edu.year}</p>
+          </div>
+        {/each}
+      </section>
+
+    </aside>
+  </div>
 </div>
-
-<style>
-	.timeline-container {
-		max-width: 1000px;
-		margin: 4rem auto;
-		padding: 2rem;
-		color: #e0e0e0;
-		font-family: 'Inter', sans-serif;
-	}
-
-	header {
-		border-left: 4px solid #00ff41;
-		padding-left: 1.5rem;
-		margin-bottom: 4rem;
-	}
-
-	h2 { margin: 0; color: #00ff41; font-family: monospace; }
-	header p { opacity: 0.6; margin: 0.5rem 0 0 0; text-transform: uppercase; font-size: 0.8rem; }
-
-	/* The Track */
-	.timeline-track {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-	}
-
-	/* The Line - Fixed in the center of the container */
-	.central-line {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 2px;
-		height: 100%;
-		background: linear-gradient(to bottom, #00ff41, transparent);
-		opacity: 0.3;
-	}
-
-	.timeline-item {
-		position: relative;
-		width: 100%;
-		display: flex;
-		margin-bottom: 2rem;
-		cursor: pointer;
-	}
-
-	/* Left Side Logic */
-	.side-left {
-		justify-content: flex-start;
-	}
-	.side-left .content-card {
-		margin-right: 50%; /* Push content to the left of the center line */
-		text-align: right;
-		padding-right: 2rem;
-	}
-
-	/* Right Side Logic */
-	.side-right {
-		justify-content: flex-end;
-	}
-	.side-right .content-card {
-		margin-left: 50%; /* Push content to the right of the center line */
-		text-align: left;
-		padding-left: 2rem;
-	}
-
-	/* The Node (The dot on the line) */
-	.node {
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 16px;
-		height: 16px;
-		background: #0a0a0a;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		z-index: 2;
-	}
-
-	.inner-node {
-		width: 8px;
-		height: 8px;
-		background: #333;
-		border-radius: 50%;
-		transition: all 0.3s ease;
-	}
-
-	/* The Content Card */
-	.content-card {
-		width: 45%; /* Keep it from hitting the line too hard */
-		background: #161616;
-		padding: 1.5rem;
-		border-radius: 8px;
-		border: 1px solid #222;
-		transition: border-color 0.3s ease, transform 0.3s ease;
-	}
-
-	.is-expanded .content-card {
-		border-color: #00ff41;
-	}
-
-	.role {
-		display: block;
-		font-weight: bold;
-		font-size: 1.2rem;
-		color: #fff;
-	}
-
-	.period {
-		display: block;
-		font-family: monospace;
-		color: #00ff41;
-		font-size: 0.85rem;
-		margin-bottom: 0.5rem;
-	}
-
-	.company-loc {
-		font-size: 0.9rem;
-		opacity: 0.7;
-	}
-
-	/* Details Expansion */
-	.details {
-		margin-top: 1.5rem;
-		padding-top: 1.5rem;
-		border-top: 1px solid #222;
-		text-align: left; /* Reset text alignment for bullets regardless of side */
-	}
-
-	.side-left .details {
-		text-align: left;
-	}
-
-	.description-list {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	.description-list li {
-		font-size: 0.9rem;
-		color: #bbb;
-		margin-bottom: 0.75rem;
-		position: relative;
-		padding-left: 1.2rem;
-	}
-
-	.description-list li::before {
-		content: "→";
-		position: absolute;
-		left: 0;
-		color: #00ff41;
-	}
-
-	.tags-container {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-		margin-top: 1rem;
-	}
-
-	.tag {
-		background: #222;
-		color: #00ff41;
-		font-size: 0.7rem;
-		padding: 0.2rem 0.5rem;
-		border-radius: 4px;
-		font-family: monospace;
-	}
-</style>
