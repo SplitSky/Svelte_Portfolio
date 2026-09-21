@@ -23,7 +23,7 @@
 		<li>
 			<ProjectCard 
 				title="Project One"
-				description="A short description of your awesome project goes here."
+				description="Project description"
 				tags={['Svelte', 'TypeScript']}
 				status="live"
 				href="#"
@@ -32,7 +32,7 @@
 		<li>
 			<ProjectCard 
 				title="Project Two"
-				description="Another cool project you've worked on. This shows how the grid layout works."
+				description="Another project description"
 				tags={['SvelteKit', 'Tailwind']}
 				status="wip"
 				github="#"
