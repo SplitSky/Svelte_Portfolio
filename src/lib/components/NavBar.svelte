@@ -5,7 +5,13 @@
 <nav>
 	<div class="container">
 		<div class="logo-section">
-			<a href={resolve('/')} class="logo">Split CV<span class="accent">.</span></a>
+			<a href={resolve('/')} class="logo">
+			<img 
+				src="src/lib/assets/Icon_looking.png" 
+				alt="logo"
+				class="max-w-20"
+			/>
+			</a>
 		</div>
 		<div class="nav-links">
 			<a href={resolve('/blog')}>Blog</a>
@@ -24,7 +30,6 @@
 	}
 
 	.container {
-		/* Match this to your main max-width */
 		max-width: 1000px;
 		margin: 0 auto;
 		padding: 1rem 2rem;

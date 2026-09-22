@@ -18,7 +18,7 @@
 			</h1>
 			
 		</div>
-		<time datetime={data.post.date}>
+		<time class="pt-6" datetime={data.post.date}>
 			{new Date(data.post.date).toLocaleDateString('en-US', {
 				year: 'numeric',
 				month: 'long',
@@ -41,13 +41,6 @@
 </article>
 
 <style>
-	title {
-		display: flex;
-		gap: 0.5rem;
-		padding: 2%;
-		font-size: 3rem;
-	}
-
 	.tags {
 		display: flex;
 		gap: 0.5rem;

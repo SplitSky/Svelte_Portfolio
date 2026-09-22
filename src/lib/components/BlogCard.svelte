@@ -47,9 +47,7 @@
 		position: relative;
 		text-duration: none;
 		text-decoration: none;
-		/* Increased border radius for a less "square" look */
-		border-radius: 24px; 
-		/* Glassmorphism effect */
+		border-radius: 4px; 
 		background: rgba(255, 255, 255, 0.03);
 		backdrop-filter: blur(12px);
 		-webkit-backdrop-filter: blur(12px);
@@ -62,7 +60,6 @@
 			box-shadow 0.4s ease;
 	}
 
-	/* The "Glow" background effect */
 	.glow {
 		position: absolute;
 		top: 0;
