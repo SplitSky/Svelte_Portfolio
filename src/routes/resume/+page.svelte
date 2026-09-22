@@ -1,5 +1,7 @@
 <script>
   import { onMount } from 'svelte';
+  import HighlightedText from '$lib/components/ProcessBulletPoint.svelte';
+	import ProcessBulletPoint from '$lib/components/ProcessBulletPoint.svelte';
 
   // --- DATA LAYER (Svelte 5 Runes) ---
 
@@ -18,7 +20,8 @@
           'Led the migration from Azure Synapse to Microsoft Fabric, including a custom scheduler with distributed cross- workspace data sharing and real-time logging for execution time and read/write monitoring',
           'Acted as the primary technical point of contact for the Head of Data & Insight, owning the development, deployment, and governance decisions department wide',
           'Led training workshops and data days, upskilling the performance and compliance department to build and maintain their own data tools',
-        ]
+        ],
+	      highlightedWords: ['Microsoft Fabric', 'PowerBI', 'CI/CD']
 	    },
 	    {
 	      role: 'Data Engineer',
@@ -30,7 +33,8 @@
           'Recovered a failed land migration project by reverse-engineering incomplete vendor outputs and building a reusable data ingestion and cleansing pipeline using PySpark and T-SQL.',
           'Provided informal architectural leadership across data services by defining coding standards, maintaining delivery schedules, and directing technical decisions across multi-source pipelines.',
           'Designed scalable, modular pipelines across HR and Child services domains forming the basis of a unified data platform.',
-        ]
+        ],
+	      highlightedWords: ['Azure Synapse', 'PySpark', 'CI/CD', 'Azure DevOps']
 	    },
 	    {
 	      role: 'Data Consultant',
@@ -41,8 +45,9 @@
           'Delivered comprehensive demos to clients, gathered requirements, and collaborated with stakeholders to ensure business needs were translated into actionable technical solutions, resulting in 100% client satisfaction and 5 successful large-scale deployments.',
           'Built a SOAP API connector with a CAI process to streamline integration between Salesforce and Informatica MDM for data merges. This enabled efficient and automated merging of records, improving data synchronisation and eliminating manual reconciliation.',
           'Engineered and customised Apex classes within Salesforce to improve functionality and streamline client workflows, reducing processing times and supporting effective data governance.',
-          'Streamlined data validation, transformation, and deployment processes by creating and enhancing Python and Bash automation scripts, reducing manual efforts by 40% and enabling complex business logic. Also contributed to recreating the Informatica CC360 matching algorithm off-platform, improving Informatica’s data matching and deduplication capabilities, which contributed to improved data quality.',
-        ]
+          'Streamlined data validation, transformation, and deployment processes by creating and enhancing Python and Bash automation scripts, reducing manual efforts by 40% and enabling complex business logic. Also contributed to recreating the Informatica CC360 matching algorithm off-platform, improving Informatica\'s data matching and deduplication capabilities, which contributed to improved data quality.',
+        ],
+	      highlightedWords: ['Salesforce', 'Informatica IDMC', 'CAI', 'Apex']
 	    },
 	    {
 	      role: 'Internship - Software Engineer',
@@ -52,8 +57,9 @@
           'Developed and managed an API-based data analytics pipeline using Python and MongoDB for the extraction, transformation, and loading of large datasets from JSON files, resulting in a 30% reduction in ',
           'Applied advanced Python libraries such as Pandas and Numpy to enhance data cleaning, enrichment, and standardisation processes, increasing data accuracy by 15% for experimentation purposes.',
           'Produced interactive dashboards using Matplotlib to deliver visual insights, optimising decision-making by 40%. Leveraged AWS services to host the API while managing Linux-based virtual machines to ensure network-wide accessibility.',
-          'Created visually compelling dashboards and interactive reports using Matplotlib to effectively communicate trends and insights, leading to a 20% increase in the research team’s adoption of data-driven strategies.',
-        ]
+          'Created visually compelling dashboards and interactive reports using Matplotlib to effectively communicate trends and insights, leading to a 20% increase in the research team\'s adoption of data-driven strategies.',
+        ],
+	      highlightedWords: ['Python', 'MongoDB', 'Pandas', 'Numpy', 'Matplotlib', 'AWS']
 	    }
 	  ],
 	  skills: [
@@ -104,7 +110,7 @@
         <h3 class="font-semibold text-lg text-white-800 group-hover:text-red-700">{job.role}</h3>
         <p class="text-sm font-medium text-red-600 mb-1">{job.company} — {job.duration}</p>
         {#each job.desc as bullet_point (bullet_point)}
-          <p class="text-white-600 text-sm leading-relaxed">{bullet_point}</p>
+          <ProcessBulletPoint text={bullet_point} keywords={job.highlightedWords}></ProcessBulletPoint>
         {/each}
       </div>
     {/each}
