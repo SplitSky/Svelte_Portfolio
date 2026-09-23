@@ -24,8 +24,6 @@
       return [{ text, bold: false }];
     }
 
-    // Longest first, so multi-word phrases match before their substrings
-    // e.g. "New York City" should match before "New York" does
     const sorted = [...cleanKeywords]
       .sort((a, b) => b.length - a.length)
       .map(escapeRegExp);

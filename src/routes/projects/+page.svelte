@@ -55,12 +55,6 @@
 	margin-bottom: 2rem;
 }
 
-.col {
-	flex: 1;
-	min-width: 0;
-}
-
-
 .hero-box {
 	display: flex;
 	flex-direction: row;
@@ -117,9 +111,6 @@
 	.bunny-img {
 		max-width: 150px;
 	}
-	
-	.col-2, .col-3, .col-4, .col-6, .col-8, .col-9 {
-		flex-basis: 100%;
-	}
+
 }
 </style>
