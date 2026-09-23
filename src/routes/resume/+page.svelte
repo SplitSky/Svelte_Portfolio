@@ -76,15 +76,8 @@
 	  ]
 	});
 
-  // Computed value (reactive)
   let jobCount = $derived(resume.experience.length);
 
-  // --- MOCK FETCH EXAMPLE ---
-  onMount(async () => {
-    // const res = await fetch('/api/resume');
-    // resume = await res.json();
-    console.log("Component mounted");
-  });
 </script>
 
 <!-- MAIN CONTAINER -->
@@ -110,7 +103,9 @@
         <h3 class="font-semibold text-lg text-white-800 group-hover:text-red-700">{job.role}</h3>
         <p class="text-sm font-medium text-red-600 mb-1">{job.company} — {job.duration}</p>
         {#each job.desc as bullet_point (bullet_point)}
+        <div class="pl-4">
           <ProcessBulletPoint text={bullet_point} keywords={job.highlightedWords}></ProcessBulletPoint>
+        </div>
         {/each}
       </div>
     {/each}
