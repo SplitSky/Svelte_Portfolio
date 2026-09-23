@@ -1,14 +1,10 @@
 <script>
-  import { onMount } from 'svelte';
-  import HighlightedText from '$lib/components/ProcessBulletPoint.svelte';
 	import ProcessBulletPoint from '$lib/components/ProcessBulletPoint.svelte';
-
-  // --- DATA LAYER (Svelte 5 Runes) ---
 
 	let resume = $state({
 	  name: 'Tomasz Neska',
 	  title: 'Senior Data Architect & Engineer',
-	  bio: 'Experienced Data Professional with a strong background in Physics and Computer Science. Proven track record designing scalable data architectures, leading security initiatives, and building full-stack solutions using modern technologies like Python, AWS, and Svelte.',
+	  bio: 'Experienced Software Engineer with a strong background in Data, Physics and Computer Science. Proven track record designing scalable data architectures, leading security initiatives, and building full-stack solutions using modern technologies',
 	  experience: [
 	    {
 	      role: 'Data Architecture & Senior Security Officer',

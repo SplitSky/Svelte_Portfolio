@@ -24,6 +24,7 @@
 		line-height: 1;
 		background: linear-gradient(to bottom, #fff 60%, #666);
 		-webkit-background-clip: text;
+		background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 
@@ -40,17 +41,4 @@
 		z-index: -1;
 	}
 
-	.section-title {
-		border-left: 4px solid var(--accent);
-		padding-left: 1rem;
-		margin-bottom: 2rem;
-	}
-
-	.card {
-		background: #111;
-		border: 1px solid var(--border-color);
-		padding: 2rem;
-		border-radius: 16px;
-		transition: 0.3s;
-	}
 </style>

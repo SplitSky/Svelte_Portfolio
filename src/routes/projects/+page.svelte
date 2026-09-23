@@ -1,12 +1,13 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import bunny from '$lib/assets/mango_bun.png';
 </script>
 
 <div class="container">
 	<div class="row">
 		<div class="hero-box">
 			<img 
-				src="src/lib/assets/mango_bun.png" 
+				src={bunny}
 				alt="Bunny at Hack-A-Bot event"
 				class="bunny-img"
 			/>
