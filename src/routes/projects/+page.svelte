@@ -1,12 +1,13 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import bunny from '$lib/assets/mango_bun.png';
 </script>
 
 <div class="container">
 	<div class="row">
 		<div class="hero-box">
 			<img 
-				src="src/lib/assets/mango_bun.png" 
+				src={bunny}
 				alt="Bunny at Hack-A-Bot event"
 				class="bunny-img"
 			/>
@@ -54,12 +55,6 @@
 	gap: 1.5rem;
 	margin-bottom: 2rem;
 }
-
-.col {
-	flex: 1;
-	min-width: 0;
-}
-
 
 .hero-box {
 	display: flex;
@@ -117,9 +112,6 @@
 	.bunny-img {
 		max-width: 150px;
 	}
-	
-	.col-2, .col-3, .col-4, .col-6, .col-8, .col-9 {
-		flex-basis: 100%;
-	}
+
 }
 </style>

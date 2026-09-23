@@ -1,5 +1,6 @@
 <script>
 	import {resolve} from '$app/paths';
+	import logo from '$lib/assets/Icon_looking.png';
 </script>
 
 <nav>
@@ -7,7 +8,7 @@
 		<div class="logo-section">
 			<a href={resolve('/')} class="logo">
 			<img 
-				src="src/lib/assets/Icon_looking.png" 
+				src={logo}
 				alt="logo"
 				class="max-w-20"
 			/>
@@ -43,10 +44,6 @@
 		font-weight: bold;
 		text-decoration: none;
 		color: white;
-	}
-
-	.accent {
-		color: var(--accent);
 	}
 
 	.nav-links {
