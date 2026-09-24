@@ -1,11 +1,36 @@
 <script>
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
+
+	// Typing effect state
+	let displayText = $state('');
+	let isTypingComplete = $state(false)
+	let charIndex = 0;
+
+	$effect(() => {
+		isTypingComplete = false;
+		charIndex = 0;
+		displayText = '';
+
+		const typingSpeed = 150; // milliseconds per character
+		
+		const intervalId = setInterval(() => {
+			if (charIndex < name.length) {
+				displayText += name[charIndex];
+				charIndex++;
+			} else {
+				isTypingComplete = true;
+				clearInterval(intervalId);
+			}
+		}, typingSpeed);
+
+		return () => clearInterval(intervalId);
+	});
 </script>
 
 <header class="hero">
 	<div class="badge">Available for projects</div>
-	<h1>{name}</h1>
+		<h1><span>{displayText}</span><span class="cursor" class:blinking={isTypingComplete}>|</span></h1>
 	<p class="subtitle">{title}</p>
 	<div class="hero-glow"></div>
 </header>
@@ -26,6 +51,28 @@
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+	}
+
+	.cursor {
+		font-weight: bold;
+		color: var(--accent);
+		margin-left: 2px;
+		opacity: 1;
+		min-width: 1ch;
+		text-align: left;
+	}
+
+	/* Cursor blinks after typing completes */
+	.cursor.blinking {
+		animation: blink 0.7s infinite;
+	}
+
+	@keyframes blink {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
 	}
 
 	.hero-glow {
