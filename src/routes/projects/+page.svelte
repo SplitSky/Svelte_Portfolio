@@ -1,6 +1,19 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import { type Project } from '$lib/types';
 	import bunny from '$lib/assets/mango_bun.png';
+	
+	const projects: Project[] = [
+			{
+				title: 'cloudy_message_broker',
+				description: 'Rust implemenation of a message queue broker',
+				github: "https://github.com/SplitSky/cloudy_message_broker",
+				href: '#',
+				tags: ['Rust'],
+				status: 'wip',
+			},
+		]
+
 </script>
 
 <div class="container">
@@ -21,22 +34,51 @@
 	</div>
 	<h2 style="margin-bottom: 1.5rem;">My Projects</h2>
 	<ul class="post-list">
+		{#each projects as project}
 		<li>
 			<ProjectCard 
-				title="Project One"
-				description="Project description"
-				tags={['Svelte', 'TypeScript']}
-				status="live"
-				href="#"
+				title={project.title}
+				description={project.description}
+				tags={project.tags}
+				status={project.status}
+				github={project.github}
+			/>
+		</li>
+		{/each}
+		<li>
+			<ProjectCard 
+				title="CloudySkies"
+				description="Distributed File Storage Engine. Loosely based on the Google File System but with leaderless replication"
+				tags={['Rust']}
+				status="wip"
+				github="https://github.com/SplitSky/CloudySkies"
 			/>
 		</li>
 		<li>
 			<ProjectCard 
-				title="Project Two"
-				description="Another project description"
-				tags={['SvelteKit', 'Tailwind']}
-				status="wip"
-				github="#"
+				title="Svelte_Portfolio"
+				description="This website! It's the full portfolio source code in Svelte 5 with Runes"
+				tags={['Svelte']}
+				status="live"
+				github="https://github.com/SplitSky/CloudySkies"
+			/>
+		</li>
+		<li>
+			<ProjectCard 
+				title="resdata"
+				description="Source code for my Master's project. FastAPI engine powering Jupyter notebooks. Proof of concept for high-throughput nano-material research"
+				tags={['Python','FastAPI','MongoDB']}
+				status="archived"
+				github="https://github.com/SplitSky/CloudySkies"
+			/>
+		</li>
+		<li>
+			<ProjectCard 
+				title="resdata"
+				description="Source code for my Master's project. FastAPI engine powering Jupyter notebooks. Proof of concept for high-throughput nano-material research"
+				tags={['Python','FastAPI','MongoDB']}
+				status="archived"
+				github="https://github.com/SplitSky/CloudySkies"
 			/>
 		</li>
 	</ul>
