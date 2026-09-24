@@ -5,4 +5,5 @@ export interface Project {
     href: string;
     tags: string[];
     status: "wip" | "live" | "archived" | undefined
+    blogSlug: string;
 }
