@@ -1,4 +1,6 @@
 <script>
+	import { fade } from 'svelte/transition';
+	import TechStack from '$lib/components/TechStack.svelte';
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
 
@@ -30,10 +32,12 @@
 
 <header class="hero">
 	<div class="badge">Available for projects</div>
-		<h1><span>{displayText}</span><span class="cursor" class:blinking={isTypingComplete}>|</span></h1>
+		<h1><span>{displayText}</span><span class="cursor">|</span></h1>
 	<p class="subtitle">{title}</p>
 	<div class="hero-glow"></div>
 </header>
+
+<TechStack></TechStack>
 
 <style>
 	.hero {
@@ -63,16 +67,6 @@
 		opacity: 1;
 		min-width: 1ch;
 		text-align: left;
-	}
-
-	/* Cursor blinks after typing completes */
-	.cursor.blinking {
-		animation: blink 0.7s infinite;
-	}
-
-	@keyframes blink {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0; }
 	}
 
 	.hero-glow {
