@@ -1,6 +1,4 @@
 <script>
-	import { fade } from 'svelte/transition';
-	import TechStack from '$lib/components/TechStack.svelte';
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
 
@@ -36,8 +34,6 @@
 	<p class="subtitle">{title}</p>
 	<div class="hero-glow"></div>
 </header>
-
-<TechStack></TechStack>
 
 <style>
 	.hero {
