@@ -2,6 +2,7 @@
 	import BlogGallery from '$lib/components/BlogGallery.svelte';
 	import { type Project } from '$lib/types';
 	import { getBlogPosts, type Post } from '$lib/utils/posts';
+	import icon_looking from '$lib/assets/overlooking_character.png';
 
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
@@ -46,14 +47,26 @@
 	<div class="badge">Available for projects</div>
 		<h1><span>{displayText}</span><span class="cursor">|</span></h1>
 	<p class="subtitle">{title}</p>
-	<div class="hero-glow"></div>
 </header>
+<div class="icon_looking_div"> <!-- // NOTE: This background color is #050505 -->
+	<img 
+		src={icon_looking}
+		alt="icon looking"
+		class="icon-img"
+	/>
+</div>
 
 <main class="content">
 	<BlogGallery posts={lastThreePosts} />
 </main>
 
 <style>
+	.icon_looking_div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.hero {
 		position: relative;
 		padding: 6rem 0;
@@ -65,7 +78,7 @@
 		margin: 0;
 		letter-spacing: -2px;
 		line-height: 1;
-		background: linear-gradient(to bottom, #fff 60%, #666);
+		background: linear-gradient(to bottom, #fff 60%, #050505);
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
@@ -81,19 +94,6 @@
 		opacity: 1;
 		min-width: 1ch;
 		text-align: left;
-	}
-
-	.hero-glow {
-		position: absolute;
-		top: 20%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 300px;
-		height: 300px;
-		background: var(--accent);
-		filter: blur(120px);
-		opacity: 0.15;
-		z-index: -1;
 	}
 
 	.content {
