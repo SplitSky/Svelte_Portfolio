@@ -1,4 +1,8 @@
-<script>
+<script lang="ts">
+	import BlogGallery from '$lib/components/BlogGallery.svelte';
+	import { type Project } from '$lib/types';
+	import { getBlogPosts, type Post } from '$lib/utils/posts';
+
 	let name = $state('Tomasz Neska');
 	let title = $state('Senior Software Engineer - Data Architect');
 
@@ -12,7 +16,7 @@
 		charIndex = 0;
 		displayText = '';
 
-		const typingSpeed = 150; // milliseconds per character
+		const typingSpeed = 150; // ms
 		
 		const intervalId = setInterval(() => {
 			if (charIndex < name.length) {
@@ -26,6 +30,16 @@
 
 		return () => clearInterval(intervalId);
 	});
+
+	const allPosts = $state<Post[]>([]); // dynamic project population
+	
+	$effect(() => {
+		getBlogPosts().then(posts => {
+			allPosts.splice(0, allPosts.length, ...posts);
+		});
+	});
+
+	const lastThreePosts = $derived(allPosts.slice(0, 3)); // splice the arryay for last 3 posts
 </script>
 
 <header class="hero">
@@ -34,6 +48,10 @@
 	<p class="subtitle">{title}</p>
 	<div class="hero-glow"></div>
 </header>
+
+<main class="content">
+	<BlogGallery posts={lastThreePosts} />
+</main>
 
 <style>
 	.hero {
@@ -76,6 +94,12 @@
 		filter: blur(120px);
 		opacity: 0.15;
 		z-index: -1;
+	}
+
+	.content {
+		max-width: 1400px;
+		margin: 0 auto;
+		padding: 0 2rem;
 	}
 
 </style>

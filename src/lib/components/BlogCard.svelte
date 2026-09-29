@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
 	/** @type {{ title: string, slug: string, date: Date, description: string, tags: string[] }} */
 	let { title, slug, date, description, tags = [] } = $props();
 	
-	function formatDate(d) {
+	function formatDate(d: Date) {
 		return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 	}
 
