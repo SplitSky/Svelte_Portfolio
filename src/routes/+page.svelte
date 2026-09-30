@@ -78,10 +78,7 @@
 		margin: 0;
 		letter-spacing: -2px;
 		line-height: 1;
-		background: linear-gradient(to bottom, #fff 60%, #050505);
-		-webkit-background-clip: text;
-		background-clip: text;
-		-webkit-text-fill-color: transparent;
+		color: #fff;
 		display: flex;
 		justify-content: center;
 		align-items: baseline;
