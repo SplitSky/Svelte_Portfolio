@@ -2,7 +2,7 @@
 title: "Making a static blog website in Svelte 5"
 date: "2023-10-25"
 description: "A practical guide to making a simple static blog using Svelte 5."
-tags: [svelte, code, frontend, ]
+tags: [svelte, code, frontend]
 ---
 
 # Introduction

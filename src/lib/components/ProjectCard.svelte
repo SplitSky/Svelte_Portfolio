@@ -24,7 +24,6 @@
 </script>
 
 <div class="card">
-	<!-- Top beam accent -->
 	<div class="beam"></div>
 
 	<div class="card-body">
