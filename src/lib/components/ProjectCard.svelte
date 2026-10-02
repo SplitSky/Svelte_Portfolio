@@ -24,7 +24,6 @@
 </script>
 
 <div class="card">
-	<!-- Top beam accent -->
 	<div class="beam"></div>
 
 	<div class="card-body">
@@ -67,36 +66,18 @@
 	.card {
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 8px;
-		background: linear-gradient(
-			160deg,
-			rgba(255, 255, 255, 0.05) 0%,
-			rgba(255, 255, 255, 0.01) 100%
-		);
+		background-color: #000;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
 		transition:
 			border-color 0.2s ease,
 			transform 0.2s ease;
-		position: relative;
 	}
 
 	.card:hover {
 		border-color: rgba(255, 255, 255, 0.219);
 		transform: translateY(-2px);
-	}
-
-	/* The light beam accent at top */
-	.beam {
-		height: 1px;
-		background: linear-gradient(
-			90deg,
-			transparent 0%,
-			rgba(255, 255, 255, 0.4) 50%,
-			transparent 100%
-		);
-		opacity: 0;
-		transition: opacity 0.2s ease;
 	}
 
 	.card:hover .beam {

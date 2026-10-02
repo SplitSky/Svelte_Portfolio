@@ -7,7 +7,7 @@
 
 <h1 class="mb-10 text-3xl font-bold pb-8 pt-6">Technical Blog</h1>
 
-<ul class="post-list">
+<ul class="space-y-6">
 	{#each posts as post}
 		<li>
 			<BlogCard
@@ -24,13 +24,3 @@
 {#if posts.length === 0}
     <p>No posts available.</p>
 {/if}
-
-<style>
-	.post-list {
-		list-style: none;
-		padding: 0;
-	}
-	.post-list li {
-		margin-bottom: 1.5rem;
-	}
-</style>

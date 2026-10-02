@@ -1,6 +1,46 @@
 <script lang="ts">
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import { type Project } from '$lib/types';
 	import bunny from '$lib/assets/mango_bun.png';
+	
+	const projects: Project[] = [
+			{
+				title: 'cloudy_message_broker',
+				description: 'Rust implemenation of a message queue broker',
+				github: "https://github.com/SplitSky/cloudy_message_broker",
+				href: '',
+				tags: ['Rust'],
+				status: 'wip',
+				blogSlug: '',
+			},
+			{
+				title: 'CloudySkies',
+				description: 'Distributed File Storage Engine. Loosely based on the Google File System but with leaderless replication',
+				github: "https://github.com/SplitSky/CloudySkies",
+				href: '',
+				tags: ['Rust'],
+				status: 'wip',
+				blogSlug: '',
+			},
+			{
+				title: 'Svelte_Portfolio',
+				description: 'This website! It\'s the full portfolio source code in Svelte 5 with Runes',
+				github: "https://github.com/SplitSky/Svelte_Portfolio",
+				href: '',
+				tags: ['Svelte'],
+				status: 'live',
+				blogSlug: '',
+			},
+			{
+				title: 'resdata',
+				description: 'Source code for my Master\'s project. FastAPI engine powering Jupyter notebooks. Proof of concept for high-throughput nano-material research',
+				github: "https://github.com/SplitSky/resdata",
+				href: '',
+				tags: ['Python','FastAPI','MongoDB'],
+				status: 'archived',
+				blogSlug: '',
+			},
+		]
 </script>
 
 <div class="container">
@@ -15,30 +55,26 @@
 				<h2 class="hero-title">Projects!</h2>
 				<p class="hero-text">
 					Here is a list of projects I worked on, abandoned and on some ocassions even finished!
+					The more interesting ones have write-ups on the blog. If you would like to talk about any of them get in touch!
 				</p>
 			</div>
 		</div>
 	</div>
 	<h2 style="margin-bottom: 1.5rem;">My Projects</h2>
 	<ul class="post-list">
+		{#each projects as project}
 		<li>
 			<ProjectCard 
-				title="Project One"
-				description="Project description"
-				tags={['Svelte', 'TypeScript']}
-				status="live"
-				href="#"
+				title={project.title}
+				description={project.description}
+				tags={project.tags}
+				status={project.status}
+				href={project.href}
+				blogSlug={project.blogSlug}
+				github={project.github}
 			/>
 		</li>
-		<li>
-			<ProjectCard 
-				title="Project Two"
-				description="Another project description"
-				tags={['SvelteKit', 'Tailwind']}
-				status="wip"
-				github="#"
-			/>
-		</li>
+		{/each}
 	</ul>
 </div>
 
