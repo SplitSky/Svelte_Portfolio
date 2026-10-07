@@ -50,10 +50,9 @@
 	      company: 'University of Manchester',
 	      duration: 'Jun 2022 - Aug 2022',
 	      desc: [
-          'Developed and managed an API-based data analytics pipeline using Python and MongoDB for the extraction, transformation, and loading of large datasets from JSON files, resulting in a 30% reduction in ',
+          'Developed and managed an API-based data analytics pipeline using Python, Pandas, Numpy, and MongoDB for the extraction, transformation, and loading of large datasets from JSON files.',
           'Applied advanced Python libraries such as Pandas and Numpy to enhance data cleaning, enrichment, and standardisation processes, increasing data accuracy by 15% for experimentation purposes.',
           'Produced interactive dashboards using Matplotlib to deliver visual insights, optimising decision-making by 40%. Leveraged AWS services to host the API while managing Linux-based virtual machines to ensure network-wide accessibility.',
-          'Created visually compelling dashboards and interactive reports using Matplotlib to effectively communicate trends and insights, leading to a 20% increase in the research team\'s adoption of data-driven strategies.',
         ],
 	      highlightedWords: ['Python', 'MongoDB', 'Pandas', 'Numpy', 'Matplotlib', 'AWS']
 	    }
