@@ -1,23 +1,16 @@
 ---
 title: "Making a static blog website in Svelte 5"
-date: "2023-10-25"
-description: "A practical guide to making a simple static blog using Svelte 5."
-tags: [svelte, code, frontend]
+date: "2026-09-12"
+description: "A practical guide to making a simple static Svelte blog. It's this website!"
+tags: [svelte, frontend]
 ---
 
 # Introduction
 
-This is a very quick and practical guide regarding how to quickly put together a blog post with all the technical caveats you need to know to get your own running. I am only writing this because the other guides just didn't quite get me there.
-
-Note: This is not a beginner tutorial. This is meant for someone who know how to code and just needs to know why his code just doesn't work or just needs a repository that compiles and works.
 
 ## Why Svelte?
 
-TL;DR : It's very simple. React is bloated and I want to go back to coding and not messing around with with the DOM and I know vanilla JS.
-
-To expand on this more.
-
-By simple I mean it has very simple reactivity and nice programming experience. The tutorials are very straightforward and it's compiled. I love things that are compiled.
+TL;DR : It's very simple. It's compiled. It's fast. It has easy reactive state
 
 Some additional bits:
 1. State management is handled with built-in features (runes)
@@ -32,9 +25,9 @@ Some text editor. I find nvim the best text editor for everything EXCEPT web dev
 So I recommend VS Code or the open source version. (For example: https://wiki.archlinux.org/title/Visual_Studio_Code)
 
 ## Svelte-kit
-One important distinction to make is that Svelte is a language that is actually used for making fancy JS/TS based elements for rendering HTML. Svelte-kit is the missing sauce for making this into a proper framework. Svelte-kit gives you server-side rendering, routing and everything else for making a full-stack application.
+One important distinction to make is that Svelte is a language that is actually used for making fancy JS/TS based elements for rendering HTML. Svelte-kit is the missing sauce for making this into a proper framework. Svelte-kit gives you server-side rendering, routing and everything else for making a full application.
 
-Here is where you should start: https://svelte.dev/docs/svelte/getting-started
+Here is where you should start documentation wise: https://svelte.dev/docs/svelte/getting-started
 
 When making a new application you want to pay attention to what it's asking you to do.
 
@@ -79,5 +72,7 @@ Which package manager do you want to install dependencies with?
 Setup done!
 
 Let's cd into the repository and let's make a home page!
+
+TODO: to be filled in later
 
 

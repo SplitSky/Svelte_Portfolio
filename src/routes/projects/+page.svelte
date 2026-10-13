@@ -24,12 +24,12 @@
 			},
 			{
 				title: 'Svelte_Portfolio',
-				description: 'This website! It\'s the full portfolio source code in Svelte 5 with Runes',
+				description: 'This website! It\'s the full portfolio source code in Svelte 5 with Runes. It\'s also statically rendered',
 				github: "https://github.com/SplitSky/Svelte_Portfolio",
 				href: '',
 				tags: ['Svelte'],
 				status: 'live',
-				blogSlug: '',
+				blogSlug: 'svelte_blog',
 			},
 			{
 				title: 'resdata',
@@ -37,6 +37,15 @@
 				github: "https://github.com/SplitSky/resdata",
 				href: '',
 				tags: ['Python','FastAPI','MongoDB'],
+				status: 'archived',
+				blogSlug: '',
+			},
+			{
+				title: 'EM simulation',
+				description: 'This is an ancient project I made in college. It\'s a physics EM engine in JavaScript. I made better technical choices since then.',
+				github: "https://github.com/SplitSky/EM-simulation",
+				href: '',
+				tags: ['JavaScript', 'PHP', 'HTML', 'Bootstrap'],
 				status: 'archived',
 				blogSlug: '',
 			},
@@ -99,8 +108,7 @@
 	align-items: center;
 	margin-bottom: 3rem;
 	padding: 2rem;
-	background: rgba(255, 255, 255, 0.02);
-	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.0);
 }
 
 .bunny-img {
