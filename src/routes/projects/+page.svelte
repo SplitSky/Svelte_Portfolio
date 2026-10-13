@@ -108,8 +108,7 @@
 	align-items: center;
 	margin-bottom: 3rem;
 	padding: 2rem;
-	background: rgba(255, 255, 255, 0.02);
-	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.0);
 }
 
 .bunny-img {

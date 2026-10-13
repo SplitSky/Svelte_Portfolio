@@ -8,9 +8,9 @@
 </script>
 
 <section class="mx-auto max-w-7xl px-4 py-8 sm:py-12 md:px-6 lg:mx-auto">
-	<div class="rounded-2xl border border-white/4 bg-white/5 p-6 sm:p-8 md:mb-12 lg:mb-0 xl:flex xl:items-center xl:justify-between xl:gap-8">
+	<div class="rounded-2xl p-6 sm:p-8 md:mb-12 lg:mb-0 xl:flex xl:items-center xl:justify-between xl:gap-8">
 		<h2 class="text-3xl font-bold text-white xl:text-[2.25rem]">Latest from the Blog</h2>
-		<a href="/blog" class="group inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-white/20 hover:translate-x-1">
+		<a href="/blog" class="group inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:translate-x-3">
 			View all posts 
 			<span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
 		</a>
