@@ -102,7 +102,7 @@
 	.content :global(pre) {
 		padding: 1rem;
 		border-radius: 8px;
-		background: #222;
+		background: #000000;
 		color: #fff;
 		overflow-x: auto;
 	}
