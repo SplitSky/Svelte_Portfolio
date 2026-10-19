@@ -108,7 +108,7 @@
 	align-items: center;
 	margin-bottom: 3rem;
 	padding: 2rem;
-	background: rgba(255, 255, 255, 0.0);
+	background: #020202;
 }
 
 .bunny-img {

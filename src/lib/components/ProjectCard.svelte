@@ -66,7 +66,7 @@
 	.card {
 		border: 1px solid rgba(255, 255, 255, 0.1);
 		border-radius: 8px;
-		background-color: #000;
+		background-color: #020202;
 		display: flex;
 		flex-direction: column;
 		overflow: hidden;
