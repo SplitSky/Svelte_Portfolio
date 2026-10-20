@@ -6,7 +6,7 @@
 	const projects: Project[] = [
 			{
 				title: 'cloudy_message_broker',
-				description: 'Rust implemenation of a message queue broker',
+				description: 'Rust implementation of a message queue broker',
 				github: "https://github.com/SplitSky/cloudy_message_broker",
 				href: '',
 				tags: ['Rust'],
@@ -63,7 +63,7 @@
 			<div class="bunny-content">
 				<h2 class="hero-title">Projects!</h2>
 				<p class="hero-text">
-					Here is a list of projects I worked on, abandoned and on some ocassions even finished!
+					Here is a list of projects I worked on, abandoned and on some occasions even finished!
 					The more interesting ones have write-ups on the blog. If you would like to talk about any of them get in touch!
 				</p>
 			</div>

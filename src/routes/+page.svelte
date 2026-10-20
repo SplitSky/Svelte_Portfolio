@@ -40,13 +40,14 @@
 		});
 	});
 
-	const lastThreePosts = $derived(allPosts.slice(0, 3)); // splice the arryay for last 3 posts
+	const lastThreePosts = $derived(allPosts.slice(0, 3));
 </script>
 
 <header class="hero">
 	<div class="badge">Available for projects</div>
 		<h1><span>{displayText}</span><span class="cursor">|</span></h1>
 	<p class="subtitle">{title}</p>
+	<p></p>
 </header>
 <div class="icon_looking_div"> <!-- // NOTE: This background color is #050505 -->
 	<img 
