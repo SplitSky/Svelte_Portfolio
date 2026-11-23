@@ -22,3 +22,11 @@ something something
 something something 
 something something 
 something something 
+
+```Rust
+let mut vector = vec![{1,2,3}];
+```
+```Python
+potato = 123
+import datetime from datetime
+```

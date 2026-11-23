@@ -4,9 +4,9 @@
 </script>
 
 <svelte:head>
-	<title>{data.post.title}</title>
-	{#if data.post.description}
-		<meta name="description" content={data.post.description} />
+	<title>{data.title}</title>
+	{#if data.description}
+		<meta name="description" content={data.description} />
 	{/if}
 </svelte:head>
 
@@ -14,21 +14,21 @@
 	<header>
 		<div>
 			<h1 class="pt-4 mt-2 mb-4 text-3xl font-bold tracking-tight text-heading md:text-5xl lg:text-6xl">
-				<span class="underline underline-offset-3 decoration-8 decoration-brand">{data.post.title}</span>		
+				<span class="underline underline-offset-3 decoration-8 decoration-brand">{data.title}</span>		
 			</h1>
 			
 		</div>
-		<time class="pt-6" datetime={data.post.date}>
-			{new Date(data.post.date).toLocaleDateString('en-US', {
+		<time class="pt-6" datetime={data.date}>
+			{new Date(data.date).toLocaleDateString('en-US', {
 				year: 'numeric',
 				month: 'long',
 				day: 'numeric'
 			})}
 		</time>
 
-		{#if data.post.tags?.length}
+		{#if data.tags?.length}
 			<ul class="tags text-black">
-				{#each data.post.tags as tag}
+				{#each data.tags as tag}
 					<li>{tag}</li>
 				{/each}
 			</ul>
@@ -36,7 +36,7 @@
 	</header>
 
 	<div class="content">
-		{@html data.post.html}
+		<data.Content />
 	</div>
 </article>
 
