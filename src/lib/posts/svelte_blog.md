@@ -73,6 +73,7 @@ Setup done!
 
 Let's cd into the repository and let's make a home page!
 
-TODO: to be filled in later
-
+```ts
+let thing = vec![1,2,3];
+```
 

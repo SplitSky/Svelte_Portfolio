@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "./styles/gruvbox-dark-theme.css";
 /* src/app.css */
 :root {
 	--bg-color: #020202;
