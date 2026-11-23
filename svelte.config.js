@@ -1,5 +1,11 @@
 import { mdsvex } from 'mdsvex';
+import { createHighlighter } from 'shiki';
 import adapter from '@sveltejs/adapter-static';
+
+const highlighter = await createHighlighter({
+	themes: ['nord'],
+	langs: ['javascript', 'typescript', 'svelte', 'rust', 'bash', 'json', 'css', 'html', 'python', 'go']
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
