@@ -2,7 +2,7 @@ import type { PageLoad } from './$types';
 
 export const prerender = true;
 
-// Define a type for our post to ensure consistency
+// Define a type post
 interface Post {
     slug: string;
     title: string;
